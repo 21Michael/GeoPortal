@@ -1,4 +1,4 @@
-(function Interactive_map(){
+export let Interactive_map =  function(){
 	"use strict";
 	let body = document.querySelector("body"),
 	 	svg_map = document.querySelector(".svg_map"),
@@ -109,4 +109,4 @@
 	interactive_map.addEventListener("mousemove", mouseMoveFun);
 	body.addEventListener("mouseup", mouseUpFun);
 	//interactive_map.addEventListener("click", (evt)=>drugger?cursBlock.textContent = "drugger":cursBlock.textContent = "click");
-})();
+};

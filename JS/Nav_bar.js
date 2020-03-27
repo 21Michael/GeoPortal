@@ -1,4 +1,4 @@
-(function navigation(){
+export let navigation =  function(){
 	
 	let navigation_list = document.querySelector(".navigation_list"),	
 	 	firstNavElement = navigation_list.firstElementChild;
@@ -19,4 +19,4 @@
 		});
 		
 		
-})();
+};

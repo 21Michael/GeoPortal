@@ -1,4 +1,4 @@
-(function Open_form_with_region(){
+export let Open_form_with_region = function(){
 'use strict';
 let html = document.querySelector("html");
 let templateWindow_region = document.querySelector(".templateWindow_region");
@@ -112,7 +112,7 @@ svg_map.addEventListener("keydown", Section_Menu);//button click open
 
 templateWindow_region.addEventListener("click", Section_Menu);//mouse click close
 document.addEventListener("keydown", Section_Menu);//button click close (Esc)
-})()
+};
 
 
 
