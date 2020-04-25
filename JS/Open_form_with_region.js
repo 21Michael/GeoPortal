@@ -2,7 +2,7 @@ export let Open_form_with_region = function(){
 	'use strict';
 	let html = document.querySelector("html");
 	let templateWindow_region = document.querySelector(".templateWindow_region");
-	let svg_map = document.querySelector(".svg_map");
+	let svg_map = document.querySelector(".interactiveMap_svg");
 	let region_dimBlock = document.querySelector(".region_dimBlock");
 	let open_form = document.querySelectorAll(".open_form");
 	let regionTemplate = document.querySelector('.region_template').content.querySelector('.region_wrappTemplate');
@@ -67,8 +67,8 @@ export let Open_form_with_region = function(){
 	    handleEvent(event) {
 	      switch(event.type) {
 	        case 'click':
-	       		if( event.target.classList.contains("pth1") && window.drugger)//при добавлении класса открытия формы к новому елементу добавь ему класс "open_form"
-	        	  	{	alert("open")
+	       		if( event.target.classList.contains("interactiveMap_path") && window.drugger)//при добавлении класса открытия формы к новому елементу добавь ему класс "open_form"
+	        	  	{	
 	        			open_template_func(event); 
 	         			remove_tabindex_func(); 
 	         			html.style.overflow = "hidden";

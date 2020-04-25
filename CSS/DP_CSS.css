@@ -42,9 +42,14 @@ body{
 	color: #2E2E2E;	
 	background-image: url(..//Image/03224/03224.png);
 	background-repeat: no-repeat;
-	background-size: 80%;
-	width: 80%;
-	height: 2273px;
+	background-size: 100%;
+	width: 100%;
+	/*height: 2273px;*/
+}
+section{
+	height: 100vh;
+	position: relative;
+	background-color: white;
 }
 svg{
 	position: absolute;		
@@ -52,11 +57,12 @@ svg{
 /*---------------------------------------------------NAVIGATION---------------------------------------------------*/
 /*----------------------------list----------------------------*/
 .header{
-	width: 80%;
+	width: 100%;
 	position: fixed;
 	top:0px;
 	z-index: 1000;
 }
+
 .navigation{
 	display: flex;
 	justify-content: space-between;	
@@ -65,7 +71,6 @@ svg{
 
     background-color: rgba(0, 166, 214, 1);
 }	
-
 .navigation_list{
 	display: flex;
     justify-content: space-around;
@@ -193,14 +198,15 @@ svg{
 }
 /*---------------------------------------------------MAIN---------------------------------------------------*/
 .main{
-	height: 100vh;
 	background-color: rgba(136, 193, 225, 1);
 }
 .main_wrapper{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-		
+	align-items:center;
+	justify-content: space-between;
+	
+	height: 100%;	
 	padding-top:190px;
 }
 /*----------------------------header----------------------------*/
@@ -293,44 +299,151 @@ svg{
 	color: white;
 	background-color: black;
 }
+/*---------------------pointerOnMap-------------------*/
+.pointerOnMap{
+	position: relative;
+	margin-bottom: 105px;
+	width: 100px;
+	height: 20px;
+}
+.pointerOnMap-after{
+	margin-top: 105px;
+	margin-bottom: 0;
+}
+@keyframes for_pointerOnMap{
+  from {
+   border-top: 20px solid white;
+  }
+  50%{
+	border-top: 20px solid rgba(0, 166, 214, 1);
+	}
+  to {
+   border-top: 20px solid black;
+  }
+}
+.pointerOnMap-link:before{
+	animation-duration: 3s;
+  	animation-name: for_pointerOnMap;
+  	animation-direction: alternate;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+	cursor: pointer;
+	content: "";
+	position: absolute;
+	left: 37.5%;
+	border: 15px solid transparent;
+	border-top: 20px solid white;
+}
+.pointerOnMap-link-after:before{
+	top:-15px;
+	  transform: rotate(-180deg);
+
+}
 /*---------------------------------------------INTERACTIVE-MAP----------------------------------------------*/
 	
-	.Sect_main_interactive_map{ 
-		width: 100%;
-		height: 100%;
-		border-bottom: 1px solid #333333;
-		border-top: 1px solid #333333;
-	}
-	.interactive_map{
-		margin: 0 auto;
-		margin-top:-100px;
-		width: 1035px;
-		height: 710px;
-		overflow: hidden;
-		position: relative; 
-		border-radius: 18px;
-		border: 15px solid #333333;
-		background-color:white; 
-	}
-	.svg_map{
+.interactiveMap{ 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-bottom: 1px solid #333333;
+	border-top: 1px solid #333333;
+}
+.interactiveMap_wrapper{
+	width: 1035px;
+	height: 710px;
+	transform: matrix(1,0,0,1,0,-150);
+	transition-duration: 1s;	
+	transition-timing-function: ease;
+	overflow: hidden;
+	z-index: 100;
+	position: absolute; 
+	border-radius: 18px;
+	border: 15px solid #333333;
+	background-color:black; 
+}
+	/*----------------------------Selection-List----------------------------*/
+
+.interactiveMap__selectionList{
+	display: flex;
+	justify-content: space-around;
+}	
+form{
+  	z-index: 2000;
+  	position: relative;
+}
+.chosen-value {
+	width: 210px;
+  	padding: 2px 5px;
+ 	border: 3px solid transparent;
+  	transition: .3s ease-in-out;
+}
+.chosen-value::-webkit-input-placeholder {
+	text-align: center;
+	color:black;
+	font-size: 13px;
+}
+.chosen-value:hover {
+    background-color: rgba(0, 166, 214, 1);
+    cursor: pointer;
+}
+.chosen-value:focus{
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
+    outline: 0;
+    background-color: rgba(0, 166, 214, 1);
+    color: #000;
+}
+.chosen-value:hover ~ ul, .value-list:hover{
+    max-height: 220px;
+   	overflow: auto;
+}
+.value-list{
+	position: absolute;
+	width: 100%;
+  	list-style: none;
+  	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
+ 	overflow: hidden;
+  	max-height: 0;
+  	transition: .3s ease-in-out;
+}
+.value-item{
+    position: relative;
+    background-color: #FAFCFD;
+   padding: 2px 5px 2px 5px;
+    font-size: 1.0rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .3s;
+    opacity: 1;
+}
+.value-list li:hover {
+    background-color: rgba(0, 166, 214, 1);
+}
+.closed {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+}   
+	
+	.interactiveMap_svg{
 		width: 100%;
 		z-index: 1;
-		position: absolute;
-		top: 0;
-		left: 0;
 		object-fit: cover;
-		transform: matrix(1,0,0,1,0,0);
+		transform: matrix(0.8,0,0,0.8,0,-60); 
 	}
 	.sect_main_img2{
 		width: 100%;	
+		transform: matrix(0.8,0,0,0.8,0,-60); 
 	}
 	
-	.pth1{
+	.interactiveMap_path{
 		fill: rgb(51, 153, 255);
 		opacity: 0.4;
 		
 	}
-	 .pth1:hover{
+	 .interactiveMap_path:hover{
 		opacity: 0.0;
         cursor: pointer;  
 	}
@@ -343,25 +456,59 @@ svg{
 	.city_name:focus, .city_name:hover{
 		cursor: pointer;
 	}
-	.city_name:hover ~ .pth1{
+	.city_name:hover ~ .interactiveMap_path{
 		cursor: pointer;
 		opacity: 0.0;
 	}
-	/*.sect_main .sect_main_ul3{	
-		grid-row-start: 2;
-		grid-row-end: 4;
-		grid-column-start:3 ;
-		grid-column-end: 4; 
-		
-	}
-	.sect_main .sect_main_ul4{
-		grid-row-start: 2;
-		grid-row-end: 4;
-		grid-column-start: 4;
-		grid-column-end: 5;	
-		margin-left:-2px; 
-	}*/
+
+/*---------------------------------------------DIAGRAMS----------------------------------------------*/
+.diagrams{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	
+}
+.diagrams_wrapper{
+	display: flex;
+	justify-content: space-around;
+	width: 95%;
+
+	background-color: red;
+}
+/*----------------------------List----------------------------*/
+.diagrams_list{
+
+}
+.diagrams_item{
+
+} 
+/*-----------------------Select-----------------------*/
+.diagrams_item-select{
+
+}	
+.diagrams_selectArea{
+
+}
+.diagrams_selectRiver{
+
+}
+.diagrams_selectPoint{
+
+}
+.diagrams_button{
+
+}
+/*-----------------------Graphic----------------------*/
+.diagrams_graphic{
+	margin: 10px;
+  width: 350px;
+  height: 200px;
+  background-color: blue;
+}
+
+
+
+
 .no_border{
 	border-bottom: none !important;
 }

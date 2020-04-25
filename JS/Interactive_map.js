@@ -1,9 +1,9 @@
 export let Interactive_map =  function(){
 	"use strict";
 	let body = document.querySelector("body"),
-	 	svg_map = document.querySelector(".svg_map"),
+	 	svg_map = document.querySelector(".interactiveMap_svg"),
 	 	cursBlock =  document.getElementById("coords1"),
-		interactive_map = document.querySelector(".interactive_map"),
+		interactive_map = document.querySelector(".interactiveMap_wrapper"),
 	 	img = document.querySelector(".sect_main_img2");
 
 	let defineMatrix = function(){return getComputedStyle(svg_map,null).getPropertyValue("transform").match(/-(\d+\.\d+)|(\d+\.\d+)|(\d+)|(-\d+)/g).map((el)=>+el)}; 
@@ -46,7 +46,7 @@ export let Interactive_map =  function(){
     	}
 	};
 
-	interactive_map.addEventListener("mousewheel", scaleFun);
+	svg_map.addEventListener("mousewheel", scaleFun);
 
 //---------------------------------------------------------------------------------------------------//
 //-----------------------------------------------SHIFT-----------------------------------------------//
@@ -105,8 +105,9 @@ export let Interactive_map =  function(){
 	};
 
 	//events: down -> move -> up -> click
-	interactive_map.addEventListener("mousedown", mouseDownFun);
-	interactive_map.addEventListener("mousemove", mouseMoveFun);
+	svg_map.addEventListener("mousedown", mouseDownFun);
+	svg_map.addEventListener("mousemove", mouseMoveFun);
 	body.addEventListener("mouseup", mouseUpFun);
 	//interactive_map.addEventListener("click", (evt)=>drugger?cursBlock.textContent = "drugger":cursBlock.textContent = "click");
+	
 };
