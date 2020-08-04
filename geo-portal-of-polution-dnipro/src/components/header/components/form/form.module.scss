@@ -1,0 +1,25 @@
+.header__search {
+    display: flex;
+    align-items: center;
+}
+
+.search__wrapper {
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.search__submit {
+    padding: 8px 10px;
+    line-height: 1em;
+    font-size: 16px;
+    border-left: 1px solid #ccc;
+}
+.search__submit[disabled] {
+    color: grey;
+}
+.search__submit[disabled='false']:hover {
+    background-color: #ccc;
+}
+
+
+

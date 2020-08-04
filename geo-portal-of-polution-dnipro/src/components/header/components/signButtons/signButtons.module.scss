@@ -1,0 +1,29 @@
+.header__sign {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sign__wrapper {
+    display: flex;
+}
+
+.sign__in,
+.sign__out {
+    display: inline-block;
+    line-height: 0.9em;
+    padding: 6px 10px;
+    font-size: 22px;
+}
+
+.sign__in:hover {
+    color: green;
+}
+
+.sign__out[disabled] {
+    color: grey;
+}
+
+.sign__out[disabled='false']:hover {
+    color: red;
+}

@@ -1,0 +1,13 @@
+.input {
+    font-style: italic;
+    font-size: 0.9em;
+    padding: 0 5px;
+}
+
+.input[data-valid = true]{
+     border-bottom: 2px solid #70da49;
+}
+.input[data-valid = false]{
+     border-bottom: 2px solid red;
+}
+

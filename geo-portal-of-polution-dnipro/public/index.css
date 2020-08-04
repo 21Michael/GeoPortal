@@ -1,0 +1,79 @@
+
+
+
+
+
+
+
+
+/*=========================================logo=========================================*/
+
+.main {
+    position: relative;
+    height: 92vh;
+}
+
+.main__title {
+    height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid hsla(209, 80%, 70%, 1);
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.main__map {
+    display: flex;
+    height: 94%;
+    overflow: hidden;
+}
+
+.map__wrapper {
+    position: relative;
+    height: 100%;
+    border-right: 2px dashed #ccc;
+}
+
+.interactiveMap_svg {
+    height: 100%;
+    position: absolute;
+}
+
+.sect_main_img2 {
+    height: 100%;
+}
+
+.interactiveMap_path {
+    fill: rgb(51, 153, 255);
+    opacity: 0.4;
+}
+
+.interactiveMap_path:hover {
+    opacity: 0.0;
+    cursor: pointer;
+}
+
+.city_name {
+    text-align: center;
+    font-size: 119px;
+    fill: black;
+    opacity: 1;
+}
+
+.city_name:focus,
+.city_name:hover {
+    cursor: pointer;
+}
+
+.city_name:hover~.interactiveMap_path {
+    cursor: pointer;
+}
+
+.map__area {
+    flex-grow: 1;
+}

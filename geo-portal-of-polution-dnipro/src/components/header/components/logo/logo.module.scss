@@ -1,0 +1,21 @@
+.header__logo {
+    display: flex;
+    margin-right: 50px;
+    line-height: 1.3em;
+    font-size: 0.9em;
+}
+
+.logo__title {
+    height: 100%;
+    max-width: 105px;
+    padding-right: 10px;
+}
+
+.logo__link {
+    width: 80px;
+}
+
+.logo__link img {
+    height: 100%;
+    width: 100%;
+}
